@@ -5,15 +5,11 @@ public class algorithm {
     static int N = 9;
 
     // sample input
-    static int grid[][] = { { 3, 0, 6, 5, 0, 8, 4, 0, 0 }, //
-            { 5, 2, 0, 0, 0, 0, 0, 0, 0 }, //
-            { 0, 8, 7, 0, 0, 0, 0, 3, 1 }, //
-            { 0, 0, 3, 0, 1, 0, 0, 8, 0 }, //
-            { 9, 0, 0, 8, 6, 3, 0, 0, 5 }, //
-            { 0, 5, 0, 0, 9, 0, 6, 0, 0 }, //
-            { 1, 3, 0, 0, 0, 0, 2, 5, 0 }, //
-            { 0, 0, 0, 0, 0, 0, 0, 7, 4 }, //
-            { 0, 0, 5, 2, 0, 6, 3, 0, 0 } };
+    private static int grid[][];
+
+    public algorithm(int[][] gridToSolve){
+        this.grid = gridToSolve;
+    }
 
     /**
      * Class to abstract the representation of a cell. Cell => (x, y)
@@ -38,7 +34,7 @@ public class algorithm {
      * Utility function to check whether @param value is valid for @param cell
      */
 
-    static boolean isValid(Cell cell, int value) {
+    public static boolean isValid(Cell cell, int value) {
 
         if (grid[cell.row][cell.col] != 0) {
             throw new RuntimeException(
@@ -74,8 +70,6 @@ public class algorithm {
         return true;
     }
 
-    // simple function to get the next cell
-    // read for yourself, very simple and straight forward
     static Cell getNextCell(Cell cur) {
 
         int row = cur.row;
@@ -103,7 +97,7 @@ public class algorithm {
     // everything is put together here
     // very simple solution
     // must return true, if the soduku is solved, return false otherwise
-    static boolean solve(Cell cur) {
+    public static boolean solve(Cell cur) {
 
         // if the cell is null, we have reached the end
         if (cur == null)
@@ -142,6 +136,16 @@ public class algorithm {
     }
 
     public static void main(String[] args) {
+        int [][] grid2 = { { 3, 0, 6, 5, 0, 8, 4, 0, 0 }, //
+                { 5, 2, 0, 0, 0, 0, 0, 0, 0 }, //
+                { 0, 8, 7, 0, 0, 0, 0, 3, 1 }, //
+                { 0, 0, 3, 0, 1, 0, 0, 8, 0 }, //
+                { 9, 0, 0, 8, 6, 3, 0, 0, 5 }, //
+                { 0, 5, 0, 0, 9, 0, 6, 0, 0 }, //
+                { 1, 3, 0, 0, 0, 0, 2, 5, 0 }, //
+                { 0, 0, 0, 0, 0, 0, 0, 7, 4 }, //
+                { 0, 0, 5, 2, 0, 6, 3, 0, 0 } };
+        algorithm algorithm = new algorithm(grid2);
         boolean solved = solve(new Cell(0, 0));
         if (!solved) {
             System.out.println("SUDOKU cannot be solved.");
