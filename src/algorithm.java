@@ -5,7 +5,7 @@ public class algorithm {
     static int N = 9;
 
     // sample input
-    private static int grid[][];
+    public static int grid[][];
 
     public algorithm(int[][] gridToSolve){
         this.grid = gridToSolve;
@@ -136,15 +136,15 @@ public class algorithm {
     }
 
     public static void main(String[] args) {
-        int [][] grid2 = { { 3, 0, 6, 5, 0, 8, 4, 0, 0 }, //
-                { 5, 2, 0, 0, 0, 0, 0, 0, 0 }, //
-                { 0, 8, 7, 0, 0, 0, 0, 3, 1 }, //
-                { 0, 0, 3, 0, 1, 0, 0, 8, 0 }, //
-                { 9, 0, 0, 8, 6, 3, 0, 0, 5 }, //
-                { 0, 5, 0, 0, 9, 0, 6, 0, 0 }, //
-                { 1, 3, 0, 0, 0, 0, 2, 5, 0 }, //
-                { 0, 0, 0, 0, 0, 0, 0, 7, 4 }, //
-                { 0, 0, 5, 2, 0, 6, 3, 0, 0 } };
+        int [][] grid2 = { { 8, 0, 0, 0, 0, 0, 0, 0, 0 }, //
+                { 0, 0, 3, 6, 0, 0, 0, 0, 0 }, //
+                { 0, 7, 0, 0, 9, 0, 2, 0, 0 }, //
+                { 0, 5, 0, 0, 0, 7, 0, 0, 0 }, //
+                { 0, 0, 0, 0, 4, 5, 7, 0, 0 }, //
+                { 0, 0, 0, 1, 0, 0, 0, 3, 0 }, //
+                { 0, 0, 1, 0, 0, 0, 0, 6, 8 }, //
+                { 0, 0, 8, 5, 0, 0, 0, 1, 0 }, //
+                { 0, 9, 0, 0, 0, 0, 4, 0, 0 } };
         algorithm algorithm = new algorithm(grid2);
         boolean solved = solve(new Cell(0, 0));
         if (!solved) {
