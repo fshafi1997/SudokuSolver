@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class GUI extends JFrame {
     public static JButton solveButton = new JButton("Solve");
@@ -79,43 +80,20 @@ public class GUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("I was pressed");
-                StringBuilder one = new StringBuilder();
-                StringBuilder two = new StringBuilder();
-                StringBuilder three = new StringBuilder();
-                StringBuilder four = new StringBuilder();
-                StringBuilder five = new StringBuilder();
-                StringBuilder six = new StringBuilder();
-                StringBuilder seven = new StringBuilder();
-                StringBuilder eight = new StringBuilder();
-                StringBuilder nine = new StringBuilder();
 
-                for (int i = 0;i<9;i++){
-                    System.out.println(textFields.get(i).getText() + " index was " + i );
-                }
-                for (int i = 9;i<18;i++){
-                    System.out.println(textFields.get(i).getText() + " index was " + i );
-                }
-                for (int i = 18;i<27;i++){
-                    System.out.println(textFields.get(i).getText() + " index was " + i );
-                }
-                for (int i = 27;i<36;i++){
-                    System.out.println(textFields.get(i).getText() + " index was " + i );
-                }
-                for (int i = 36;i<45;i++){
-                    System.out.println(textFields.get(i).getText() + " index was " + i );
-                }
-                for (int i = 45;i<54;i++){
-                    System.out.println(textFields.get(i).getText() + " index was " + i );
-                }
-                for (int i = 54;i<63;i++){
-                    System.out.println(textFields.get(i).getText() + " index was " + i );
-                }
-                for (int i = 63;i<72;i++){
-                    System.out.println(textFields.get(i).getText() + " index was " + i );
-                }
-                for (int i = 72;i<81;i++){
-                    System.out.println(textFields.get(i).getText() + " index was " + i );
-                }
+                //output.setText(eight.toString());
+                int[][] enteredBoard = { { Integer.parseInt(textFields.get(0).getText()), Integer.parseInt(textFields.get(1).getText()), Integer.parseInt(textFields.get(2).getText()), Integer.parseInt(textFields.get(9).getText()), Integer.parseInt(textFields.get(10).getText()), Integer.parseInt(textFields.get(11).getText()), Integer.parseInt(textFields.get(18).getText()), Integer.parseInt(textFields.get(19).getText()), Integer.parseInt(textFields.get(20).getText()) },
+                                         { Integer.parseInt(textFields.get(3).getText()), Integer.parseInt(textFields.get(4).getText()), Integer.parseInt(textFields.get(5).getText()), Integer.parseInt(textFields.get(12).getText()), Integer.parseInt(textFields.get(13).getText()), Integer.parseInt(textFields.get(14).getText()), Integer.parseInt(textFields.get(21).getText()), Integer.parseInt(textFields.get(22).getText()), Integer.parseInt(textFields.get(23).getText()) },
+                                         { Integer.parseInt(textFields.get(6).getText()), Integer.parseInt(textFields.get(7).getText()), Integer.parseInt(textFields.get(8).getText()), Integer.parseInt(textFields.get(15).getText()), Integer.parseInt(textFields.get(16).getText()), Integer.parseInt(textFields.get(17).getText()), Integer.parseInt(textFields.get(24).getText()), Integer.parseInt(textFields.get(25).getText()), Integer.parseInt(textFields.get(26).getText()) },
+                                         { Integer.parseInt(textFields.get(27).getText()), Integer.parseInt(textFields.get(28).getText()), Integer.parseInt(textFields.get(29).getText()), Integer.parseInt(textFields.get(36).getText()), Integer.parseInt(textFields.get(37).getText()), Integer.parseInt(textFields.get(38).getText()), Integer.parseInt(textFields.get(45).getText()), Integer.parseInt(textFields.get(46).getText()), Integer.parseInt(textFields.get(47).getText()) },
+                                         { Integer.parseInt(textFields.get(30).getText()), Integer.parseInt(textFields.get(31).getText()), Integer.parseInt(textFields.get(32).getText()), Integer.parseInt(textFields.get(39).getText()), Integer.parseInt(textFields.get(40).getText()), Integer.parseInt(textFields.get(41).getText()), Integer.parseInt(textFields.get(48).getText()), Integer.parseInt(textFields.get(49).getText()), Integer.parseInt(textFields.get(50).getText()) },
+                                         { Integer.parseInt(textFields.get(33).getText()), Integer.parseInt(textFields.get(34).getText()), Integer.parseInt(textFields.get(35).getText()), Integer.parseInt(textFields.get(42).getText()), Integer.parseInt(textFields.get(43).getText()), Integer.parseInt(textFields.get(44).getText()), Integer.parseInt(textFields.get(51).getText()), Integer.parseInt(textFields.get(52).getText()), Integer.parseInt(textFields.get(53).getText()) },
+                                         { Integer.parseInt(textFields.get(54).getText()), Integer.parseInt(textFields.get(55).getText()), Integer.parseInt(textFields.get(56).getText()), Integer.parseInt(textFields.get(63).getText()), Integer.parseInt(textFields.get(64).getText()), Integer.parseInt(textFields.get(65).getText()), Integer.parseInt(textFields.get(72).getText()), Integer.parseInt(textFields.get(73).getText()), Integer.parseInt(textFields.get(74).getText()) },
+                                         { Integer.parseInt(textFields.get(57).getText()), Integer.parseInt(textFields.get(58).getText()), Integer.parseInt(textFields.get(59).getText()), Integer.parseInt(textFields.get(66).getText()), Integer.parseInt(textFields.get(67).getText()), Integer.parseInt(textFields.get(68).getText()), Integer.parseInt(textFields.get(75).getText()), Integer.parseInt(textFields.get(76).getText()), Integer.parseInt(textFields.get(77).getText()) },
+                                         { Integer.parseInt(textFields.get(60).getText()), Integer.parseInt(textFields.get(61).getText()), Integer.parseInt(textFields.get(62).getText()), Integer.parseInt(textFields.get(69).getText()), Integer.parseInt(textFields.get(70).getText()), Integer.parseInt(textFields.get(71).getText()), Integer.parseInt(textFields.get(78).getText()), Integer.parseInt(textFields.get(79).getText()), Integer.parseInt(textFields.get(80).getText()) }
+                };
+
+                System.out.println(Arrays.deepToString(enteredBoard));
             }
         });
     }
