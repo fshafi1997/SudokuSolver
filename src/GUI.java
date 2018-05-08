@@ -7,6 +7,8 @@ import java.util.ArrayList;
 public class GUI extends JFrame {
     public static JButton solveButton = new JButton("Solve");
     public static ArrayList<JTextField> textFields = new ArrayList<>();
+    public static JTextArea output = new JTextArea(10, 15);
+
 
     public GUI() {
         // Create panel for Sudoku
@@ -49,7 +51,6 @@ public class GUI extends JFrame {
         menuConstraints.gridy = 5;
 
         // Create output panel
-        JTextArea output = new JTextArea(10, 15);
         output.setEditable(false);
         output.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLUE), "Output Area"));
 
@@ -78,9 +79,42 @@ public class GUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("I was pressed");
+                StringBuilder one = new StringBuilder();
+                StringBuilder two = new StringBuilder();
+                StringBuilder three = new StringBuilder();
+                StringBuilder four = new StringBuilder();
+                StringBuilder five = new StringBuilder();
+                StringBuilder six = new StringBuilder();
+                StringBuilder seven = new StringBuilder();
+                StringBuilder eight = new StringBuilder();
+                StringBuilder nine = new StringBuilder();
 
-                for (int i = 0;i<textFields.size();i++){
-                    System.out.println(textFields.get(i).getText() + " index was " + i);
+                for (int i = 0;i<9;i++){
+                    System.out.println(textFields.get(i).getText() + " index was " + i );
+                }
+                for (int i = 9;i<18;i++){
+                    System.out.println(textFields.get(i).getText() + " index was " + i );
+                }
+                for (int i = 18;i<27;i++){
+                    System.out.println(textFields.get(i).getText() + " index was " + i );
+                }
+                for (int i = 27;i<36;i++){
+                    System.out.println(textFields.get(i).getText() + " index was " + i );
+                }
+                for (int i = 36;i<45;i++){
+                    System.out.println(textFields.get(i).getText() + " index was " + i );
+                }
+                for (int i = 45;i<54;i++){
+                    System.out.println(textFields.get(i).getText() + " index was " + i );
+                }
+                for (int i = 54;i<63;i++){
+                    System.out.println(textFields.get(i).getText() + " index was " + i );
+                }
+                for (int i = 63;i<72;i++){
+                    System.out.println(textFields.get(i).getText() + " index was " + i );
+                }
+                for (int i = 72;i<81;i++){
+                    System.out.println(textFields.get(i).getText() + " index was " + i );
                 }
             }
         });
