@@ -10,6 +10,11 @@ public class GUI extends JFrame {
     public static ArrayList<JTextField> textFields = new ArrayList<>();
     public static JTextArea output = new JTextArea(10, 15);
 
+    public static void print2D(int mat[][]) {
+        for (int[] row : mat)
+            System.out.println(Arrays.toString(row));
+    }
+
 
     public GUI() {
         // Create panel for Sudoku
@@ -81,6 +86,12 @@ public class GUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("I was pressed");
 
+                for (int i = 0; i < textFields.size(); i++) {
+                    if (textFields.get(i).getText().equals("")){
+                        textFields.get(i).setText("0");
+                    } else continue;
+                }
+
                 //output.setText(eight.toString());
                 int[][] enteredBoard = { { Integer.parseInt(textFields.get(0).getText()), Integer.parseInt(textFields.get(1).getText()), Integer.parseInt(textFields.get(2).getText()), Integer.parseInt(textFields.get(9).getText()), Integer.parseInt(textFields.get(10).getText()), Integer.parseInt(textFields.get(11).getText()), Integer.parseInt(textFields.get(18).getText()), Integer.parseInt(textFields.get(19).getText()), Integer.parseInt(textFields.get(20).getText()) },
                                          { Integer.parseInt(textFields.get(3).getText()), Integer.parseInt(textFields.get(4).getText()), Integer.parseInt(textFields.get(5).getText()), Integer.parseInt(textFields.get(12).getText()), Integer.parseInt(textFields.get(13).getText()), Integer.parseInt(textFields.get(14).getText()), Integer.parseInt(textFields.get(21).getText()), Integer.parseInt(textFields.get(22).getText()), Integer.parseInt(textFields.get(23).getText()) },
@@ -93,7 +104,15 @@ public class GUI extends JFrame {
                                          { Integer.parseInt(textFields.get(60).getText()), Integer.parseInt(textFields.get(61).getText()), Integer.parseInt(textFields.get(62).getText()), Integer.parseInt(textFields.get(69).getText()), Integer.parseInt(textFields.get(70).getText()), Integer.parseInt(textFields.get(71).getText()), Integer.parseInt(textFields.get(78).getText()), Integer.parseInt(textFields.get(79).getText()), Integer.parseInt(textFields.get(80).getText()) }
                 };
 
-                System.out.println(Arrays.deepToString(enteredBoard));
+                algorithm algorithm2 = new algorithm(enteredBoard);
+                boolean solved = algorithm2.solve(new algorithm.Cell(0, 0));
+                if (!solved) {
+                    System.out.println("SUDOKU cannot be solved.");
+                    return;
+                }
+                System.out.println("SOLUTION\n");
+
+                print2D(algorithm2.grid);
             }
         });
     }
