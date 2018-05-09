@@ -11,9 +11,7 @@ public class algorithm {
         this.grid = gridToSolve;
     }
 
-    /**
-     * Class to abstract the representation of a cell. Cell => (x, y)
-     */
+
     static class Cell {
 
         int row, col;
@@ -94,21 +92,14 @@ public class algorithm {
         return next;
     }
 
-    // everything is put together here
-    // very simple solution
     // must return true, if the soduku is solved, return false otherwise
     public static boolean solve(Cell cur) {
 
-        // if the cell is null, we have reached the end
+        // if the cell is null reached the end
         if (cur == null)
             return true;
 
-        // if grid[cur] already has a value, there is nothing to solve here,
-        // continue on to next cell
         if (grid[cur.row][cur.col] != 0) {
-            // return whatever is being returned by solve(next)
-            // i.e the state of soduku's solution is not being determined by
-            // this cell, but by other cells
             return solve(getNextCell(cur));
         }
 
@@ -136,6 +127,7 @@ public class algorithm {
     }
 
     public static void main(String[] args) {
+        // for testing
         int [][] grid2 = { { 8, 0, 0, 0, 0, 0, 0, 0, 0 }, //
                 { 0, 0, 3, 6, 0, 0, 0, 0, 0 }, //
                 { 0, 7, 0, 0, 9, 0, 2, 0, 0 }, //

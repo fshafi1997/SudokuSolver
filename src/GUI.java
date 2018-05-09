@@ -15,6 +15,13 @@ public class GUI extends JFrame {
             System.out.println(Arrays.toString(row));
     }
 
+    public static String string2D(int mat[][]) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int[] row : mat)
+            stringBuilder.append(Arrays.toString(row));
+        return stringBuilder.toString();
+    }
+
 
     public GUI() {
         // Create panel for Sudoku
@@ -81,6 +88,8 @@ public class GUI extends JFrame {
         frame.pack();
         frame.setVisible(true);
 
+        int[][] solvedBoard = new int[9][9];
+
         solveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -112,9 +121,18 @@ public class GUI extends JFrame {
                 }
                 System.out.println("SOLUTION\n");
 
+                // making copy
+                for(int i=0; i<solvedBoard.length; i++) {
+                    for (int j = 0; j < solvedBoard[i].length; j++) {
+                        solvedBoard[i][j] = algorithm2.grid[i][j];
+                    }
+                }
+
                 print2D(algorithm2.grid);
             }
         });
+
+        output.setText();
     }
 
 }
