@@ -17,11 +17,39 @@ public class GUI extends JFrame {
 
     public static String string2D(int mat[][]) {
         StringBuilder stringBuilder = new StringBuilder();
+        int total = 0;
         for (int[] row : mat) {
-            stringBuilder.append(Arrays.toString(row));
+            //stringBuilder.append(Arrays.toString(row));
+            stringBuilder.append(boardPrint(row));
+            total+=1;
             stringBuilder.append('\n');
+            if (total % 3 == 0) {
+                stringBuilder.append("----------------------------\n");
+            }
         }
+        stringBuilder.delete(stringBuilder.length() - "----------------------------\n".length(), stringBuilder.length());
         return stringBuilder.toString();
+    }
+
+    public static String boardPrint(int[] board) {
+        StringBuilder output = new StringBuilder();
+        int total = 0;
+        for (Object o : board) {
+            output.append(o.toString());
+            total+=1;
+            if (total % 3 == 0) {
+                output.append("   ||   ");
+            } else {
+                output.append(" | ");
+            }
+        }
+        //remove last ", " or " ---> " printed
+        if (total%3==0) {
+            output.delete(output.length() - "   ||   ".length(), output.length());
+        } else {
+            output.delete(output.length() - " | ".length(), output.length());
+        }
+        return output.toString();
     }
 
 
