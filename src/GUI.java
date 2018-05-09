@@ -17,8 +17,10 @@ public class GUI extends JFrame {
 
     public static String string2D(int mat[][]) {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int[] row : mat)
+        for (int[] row : mat) {
             stringBuilder.append(Arrays.toString(row));
+            stringBuilder.append('\n');
+        }
         return stringBuilder.toString();
     }
 
@@ -129,10 +131,11 @@ public class GUI extends JFrame {
                 }
 
                 print2D(algorithm2.grid);
+
+                output.setText(string2D(solvedBoard));
             }
         });
 
-        output.setText();
     }
 
 }
